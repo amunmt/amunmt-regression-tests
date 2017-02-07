@@ -5,7 +5,7 @@
  * models -- test models
  * tests -- tests
 
-## Gettings models
+## Getting models
 To download test models, run:
 ```
 make download_models
