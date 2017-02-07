@@ -4,7 +4,7 @@ relative-paths: yes
 
 # performance settings
 beam-size: 5
-devices: [1]
+devices: [0]
 normalize: yes
 gpu-threads: 1
 batch-size: 1
