@@ -1,0 +1,34 @@
+
+# Paths are relative to config file location
+relative-paths: yes
+
+# performance settings
+beam-size: 5
+devices: [0]
+normalize: yes
+gpu-threads: 0
+cpu-threads: 8
+
+batch-size: 1
+
+return-alignment: no
+alignment-dump: no
+
+n-best: no
+
+# scorer configuration
+scorers:
+  F0:
+    path: ../../models/model_en-de/model.npz
+    type: Nematus
+
+# scorer weights
+weights:
+  F0: 1.0
+
+# BPE
+bpe: ../../models/model_en-de/ende.bpe
+
+# vocabularies
+source-vocab: ../../models/model_en-de/vocab.en.json
+target-vocab: ../../models/model_en-de/vocab.de.json
