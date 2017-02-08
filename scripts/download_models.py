@@ -5,6 +5,7 @@ import argparse
 import sys
 import os
 import requests
+import urlparse
 from clint.textui import progress
 
 BASE_URL = "http://data.statmt.org/rsennrich/wmt16_systems/{}-{}/{}"
@@ -56,6 +57,7 @@ def parse_args():
     parser.add_argument("-w", dest="workdir", default='.')
     parser.add_argument('-m', dest="model", default='en-de')
     parser.add_argument('-f', dest="force", default=False)
+    parser.add_argument('-u', dest='url', default='')
     return parser.parse_args()
 
 
@@ -113,9 +115,20 @@ def create_base_config(model, model_dir):
         config_file.write(config)
 
 
+def get_model_from_url(url, workdir, force=False):
+    filename = urlparse.urlsplit(url).path.split('/')[-1]
+    make_workdir(workdir)
+    path = "{}/{}".format(workdir, filename)
+    download_with_progress(path, url)
+
+
 def main():
     """ main """
     args = parse_args()
+
+    if args.url != '':
+        get_model_from_url(args.url, args.workdir)
+        return 0
 
     print >> sys.stderr,  "Downloading {} to {}".format(args.model,
                                                         args.workdir)
