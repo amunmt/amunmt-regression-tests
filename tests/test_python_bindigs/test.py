@@ -13,8 +13,10 @@ def test_init():
 
 
 def test_translate():
-    output = nmt.translate(['Alice has a cat .'])[0]
-    assert output.strip() == 'Alice hat eine Katze .'
+    output = nmt.translate(['Alice has a cat .'])
+    assert len(output) == 1
+    translation = output[0]
+    assert translation.strip() == 'Alice hat eine Katze .'
 
 
 def main():
