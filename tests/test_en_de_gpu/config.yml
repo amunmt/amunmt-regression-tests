@@ -7,7 +7,7 @@ beam-size: 5
 devices: [0]
 normalize: yes
 gpu-threads: 1
-batch-size: 1
+batch-size: 100
 
 return-alignment: no
 alignment-dump: no
