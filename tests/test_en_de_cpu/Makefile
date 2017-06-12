@@ -1,6 +1,6 @@
 #/bin/bash -ex
 
-AMUN=../../../amunmt/build/bin/amun
+AMUN=../../../marian/build/amun
 
 test:
 	$(AMUN) -c config.yml > test.out
