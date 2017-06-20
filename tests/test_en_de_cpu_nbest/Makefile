@@ -4,7 +4,7 @@ AMUN=../../marian/build/amun
 
 test:
 	$(AMUN) -c config.yml > test.out
-	diff test.out test.correct > diff.out
+	diff test.out test.correct
 
 clean:
 	rm -f test.out
