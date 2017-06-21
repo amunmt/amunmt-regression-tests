@@ -7,4 +7,4 @@ test:
 	diff test.out test.correct
 
 clean:
-	rm -f test.out
+	rm -f test.out err
