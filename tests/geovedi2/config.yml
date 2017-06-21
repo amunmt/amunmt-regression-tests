@@ -1,0 +1,13 @@
+source-vocab: ../../models/geovedi2/model/vocab.en.yml
+target-vocab: ../../models/geovedi2/model/vocab.id.yml
+devices:
+  - 0
+normalize: true
+beam-size: 12
+relative-paths: false
+scorers:
+  F0:
+    path: ../../models/geovedi2/model/model.en2id.W256xR512.000.npz
+    type: Nematus
+weights:
+  F0: 1
