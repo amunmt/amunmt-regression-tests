@@ -1,0 +1,25 @@
+# Paths are relative to config file location
+relative-paths: yes
+
+# performance settings
+beam-size: 5
+normalize: yes
+cpu-threads: 1
+gpu-threads: 0
+
+# scorer configuration
+scorers:
+  F0:
+    path: ../../models/rico/model.npz
+    type: Nematus
+
+# scorer weights
+weights:
+  F0: 1.0
+
+mini-batch: 100
+maxi-batch: 2000
+
+# vocabularies
+source-vocab: ../../models/rico/vocab.en.json
+target-vocab: ../../models/rico/vocab.de.json
