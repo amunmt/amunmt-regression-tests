@@ -1,0 +1,13 @@
+source-vocab: ../../models/large-vocab/train.tok.clean.es.bpe.yml
+target-vocab: ../../models/large-vocab/train.tok.clean.en.bpe.yml
+devices:
+  - 0
+normalize: true
+beam-size: 12
+relative-paths: false
+scorers:
+  F0:
+    path: ../../models/large-vocab/model.npz
+    type: Nematus
+weights:
+  F0: 1
