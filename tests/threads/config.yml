@@ -1,0 +1,25 @@
+allow-unk: false
+beam-size: 5
+n-best: false
+normalize: true
+relative-paths: true
+threads-openblas: 2
+scorers:
+  F0:
+    path: ../../models/large-beam/model.npz
+    type: Nematus
+show-weights: false
+source-vocab:
+  - ../../models/large-beam/corpus.1.de.bpe.yml
+target-vocab: ../../models/large-beam/corpus.1.en.bpe.yml
+threads: 16
+weights:
+  F0: 1
+mode: gpu
+mini-batch: 100
+maxi-batch: 2000
+#input-file: temp.in
+#devices: 1
+gpu-threads: 0
+cpu-threads: 0
+
