@@ -1,0 +1,12 @@
+source-vocab: ../../models/small-vocab/vocab.src.yml
+target-vocab: ../../models/small-vocab/vocab.trg.yml
+devices:
+  - 0
+normalize: true
+beam-size: 12
+relative-paths: false
+scorers:
+  F0:
+    type: Nematus
+weights:
+  F0: 1
