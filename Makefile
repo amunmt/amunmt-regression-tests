@@ -24,6 +24,7 @@ models/hieu:
 	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/large-beam.tgz -w models
 	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/large-vocab.tgz -w models
 	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/rico.tgz -w models
+	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/small-vocab.tgz -w models
 	tar xvf models/geovedi.tgz -C models
 	tar xvf models/geovedi2.tgz -C models
 	tar xvf models/geovedi3.tgz -C models
@@ -31,6 +32,7 @@ models/hieu:
 	tar xvf models/large-beam.tgz -C models
 	tar xvf models/large-vocab.tgz -C models
 	tar xvf models/rico.tgz -C models
+	tar xvf models/small-vocab.tgz -C models
 	rm models/*.tgz
 
 models/model_en-de:
