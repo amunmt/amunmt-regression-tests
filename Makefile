@@ -17,14 +17,14 @@ download_models: models/hieu models/model_en-de models/model_en-fr
 
 models/hieu:
 	$(dir_guard)
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/geovedi.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/geovedi2.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/geovedi3.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/issue50.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/large-beam.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/large-vocab.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/rico.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/~s0565741/marian-regression-tests/models/small-vocab.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/geovedi.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/geovedi2.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/geovedi3.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/issue50.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/large-beam.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/large-vocab.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/rico.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/small-vocab.tgz -w models
 	tar xvf models/geovedi.tgz -C models
 	tar xvf models/geovedi2.tgz -C models
 	tar xvf models/geovedi3.tgz -C models
