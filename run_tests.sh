@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/bash -ex
 
 for test in `ls tests`; do
   cd tests/$test
