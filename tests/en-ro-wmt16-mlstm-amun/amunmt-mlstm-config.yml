@@ -1,0 +1,29 @@
+# Paths are relative to config file location
+relative-paths: yes
+
+# performance settings
+beam-size: 12
+devices: [0]
+normalize: yes
+threads-per-device: 1
+#bpe: models/enro.bpe
+
+# scorer configuration
+scorers:
+  F0:
+    path: ../../models/en-ro-wmt16-mlstm-amun/en-ro.wmt16.mlstm.amun.npz
+    type: Nematus
+    enc-cell: mlstm
+    dec-cell: mlstm
+    dec-cell-2: gru
+
+# scorer weights
+weights:
+  F0: 1.0
+
+return-alignment: no
+#show-weights: true
+
+# vocabularies
+source-vocab: ../../models/en-ro-wmt16-mlstm-amun/en.json
+target-vocab: ../../models/en-ro-wmt16-mlstm-amun/ro.json
