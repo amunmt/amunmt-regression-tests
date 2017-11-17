@@ -3,7 +3,7 @@
 AMUN=../../../marian/build/amun
 
 test:
-	cat data/newstest2016.bpe.en | $(AMUN) -c amunmt-mlstm-config.yml --mini-batch 32 --maxi-batch 320 > test.out
+	cat test.in | $(AMUN) -c amunmt-mlstm-config.yml --mini-batch 32 --maxi-batch 320 > test.out
 	diff test.out test.correct
 
 clean:
