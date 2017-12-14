@@ -1,0 +1,44 @@
+allow-unk: false
+beam-size: 12
+bpe:
+  - ../../models/ensemble/ende.bpe
+cpu-threads: 0
+devices: [0]
+gpu-threads: 1
+log-info: info
+log-progress: info
+max-length: 500
+maxi-batch: 1
+mini-batch: 1
+mini-batch-words: 0
+n-best: false
+no-debpe: false
+normalize: true
+relative-paths: true
+return-alignment: false
+return-soft-alignment: false
+scorers:
+  F0:
+    path: ../../models/ensemble/model-ens1.npz
+    type: Nematus
+  F1:
+    path: ../../models/ensemble/model-ens2.npz
+    type: Nematus
+  F2:
+    path: ../../models/ensemble/model-ens3.npz
+    type: Nematus
+  F3:
+    path: ../../models/ensemble/model-ens4.npz
+    type: Nematus
+show-weights: false
+softmax-filter:
+  []
+source-vocab:
+  - ../../models/ensemble/vocab.en.json
+target-vocab: ../../models/ensemble/vocab.de.json
+weights:
+  F0: 1
+  F1: 1
+  F2: 1
+  F3: 1
+wipo: false
