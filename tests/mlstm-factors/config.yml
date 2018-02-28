@@ -1,0 +1,33 @@
+# Paths are relative to config file location
+relative-paths: yes
+
+# performance settings
+beam-size: 12
+devices: [0]
+normalize: yes
+threads-per-device: 1
+
+# scorer configuration
+scorers:
+  F0:
+    path: ../../models/mlstm-factors/en-lv.emea.mlstm.factors.amun.npz
+    type: Nematus
+    enc-cell: mlstm
+    dec-cell: mlstm
+    dec-cell-2: gru
+
+# scorer weights
+weights:
+  F0: 1.0
+
+return-alignment: no
+#show-weights: true
+
+# vocabularies
+source-vocab:
+  - - ../../models/mlstm-factors/vocabs/train.en.json
+    - ../../models/mlstm-factors/vocabs/train.en.1.json
+    - ../../models/mlstm-factors/vocabs/train.en.2.json
+    - ../../models/mlstm-factors/vocabs/train.en.3.json
+    - ../../models/mlstm-factors/vocabs/train.en.4.json
+target-vocab: ../../models/mlstm-factors/vocabs/train.lv.json

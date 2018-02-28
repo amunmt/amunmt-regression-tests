@@ -27,6 +27,7 @@ models/hieu:
 	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/small-vocab.tgz -w models
 	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/ensemble.tgz -w models
 	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/en-ro-wmt16-mlstm-amun.tgz -w models
+	./scripts/download_models.py -u http://thor.inf.ed.ac.uk/~s0565741/marian-regression-tests/models/mlstm-factors.tgz -w models
 	tar xvf models/geovedi.tgz -C models
 	tar xvf models/geovedi2.tgz -C models
 	tar xvf models/geovedi3.tgz -C models
@@ -37,6 +38,7 @@ models/hieu:
 	tar xvf models/small-vocab.tgz -C models
 	tar xvf models/ensemble.tgz -C models
 	tar xvf models/en-ro-wmt16-mlstm-amun.tgz -C models
+	tar xvf models/mlstm-factors.tgz -C models
 	rm models/*.tgz
 
 models/model_en-de:
