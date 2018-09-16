@@ -1,6 +1,6 @@
 #/bin/bash -ex
 
-AMUN=../../../marian/build/amun
+AMUN=../../../amun/build/amun
 
 test:
 	cat test.in | $(AMUN) -c amunmt-mlstm-config.yml --mini-batch 32 --maxi-batch 320 > test.out

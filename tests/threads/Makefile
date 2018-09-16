@@ -1,6 +1,6 @@
 #/bin/bash -ex
 
-AMUN=../../../marian/build/amun
+AMUN=../../../amun/build/amun
 
 INPUT=input.tc.1.bpe
 BATCH=20

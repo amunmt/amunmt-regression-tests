@@ -1,6 +1,6 @@
 #/bin/bash -ex
 
-AMUN=../../../marian/build/amun
+AMUN=../../../amun/build/amun
 
 IN=in.1k
 BATCH=128

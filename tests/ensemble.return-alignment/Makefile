@@ -1,6 +1,6 @@
 #/bin/bash -ex
 
-AMUN=../../../marian/build/amun
+AMUN=../../../amun/build/amun
 
 test:
 	$(AMUN) -c ensemble.yml --gpu-threads 1 --cpu-threads 0 --mini-batch 32 --maxi-batch 32 --return-alignment -i in > test.out
