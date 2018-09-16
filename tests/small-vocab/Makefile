@@ -3,9 +3,8 @@
 AMUN=../../../amun/build/amun
 
 test:
-	cat valid.src | $(AMUN) -c model.npz.amun.yml -m ../../models/small-vocab/model.iter1000.npz -b 12 -n --mini-batch 10 --maxi-batch 1000 > test.out
-
-	diff test.out test.correct
+	cat valid.src | $(AMUN) -c model.npz.amun.yml -m ../../models/small-vocab/model.iter1000.npz -b 12 -n --mini-batch 8 --maxi-batch 32 > test.out
+	diff test.out test.correct > test.diff
 
 clean:
-	rm -f test.out
+	rm -f test.out test.diff err

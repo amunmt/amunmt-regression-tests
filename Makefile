@@ -25,6 +25,9 @@ models/model_en-fr:
 	./scripts/download_models.py -u http://data.statmt.org/summa/mt/models/test/en-fr/en-fr.tgz -w models && cd models && tar xvf en-fr.tgz --transform "s|en-fr/|model_en-fr/|"
 
 clean:
+	rm -f tests/*/test.out tests/*/test.diff tests/*/err
+
+clean-models:
 	rm -rf models
 
-.PHONY: clean models zip-models
+.PHONY: clean clean-models models models-hieu zip-models

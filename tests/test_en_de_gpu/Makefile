@@ -5,7 +5,7 @@ AMUN=../../../amun/build/amun
 
 test:
 	cat test.in |  $(AMUN) -c config.yml > test.out
-	diff test.out test.correct
+	diff test.out test.correct > test.diff
 
 clean:
-	rm -f test.out err
+	rm -f test.out test.diff err

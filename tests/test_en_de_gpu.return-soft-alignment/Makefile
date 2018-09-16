@@ -4,8 +4,8 @@
 AMUN=../../../amun/build/amun
 
 test:
-	cat test.in |  $(AMUN) -c config.yml --return-soft-alignment --mini-batch 64 --maxi-batch 64 > test.out
-	diff test.out test.correct
+	cat test.in |  $(AMUN) -c config.yml --return-soft-alignment --mini-batch 8 --maxi-batch 32 > test.out
+	diff test.out test.correct > test.diff
 
 clean:
-	rm -f test.out err
+	rm -f test.out test.diff err
