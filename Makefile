@@ -1,53 +1,30 @@
 #!/bin/bash
 
-dir_guard=@mkdir -p $(@D)
-
 all: models
 
-models: $(patsubst %.tgz,%,$(wildcard models/*.tgz))
+zip-models: $(patsubst %.tgz,%,$(wildcard models/*.tgz))
 
-download_models: models/hieu models/model_en-de models/model_en-fr
+models: model-ende model-enfr models-hieu
+
+MODELS_HIEU: geovedi geovedi2 geovedi3 issue50 large-beam large-vocab rico small-vocab ensemble en-ro-wmt16-mlstm-amun mlstm-factors.tgz
+models-hieu: $(patsubst %,models/%,$(MODELS_HIEU))
 
 %: %.tgz
-	tar xvf $< -C models
+	tar xvf $^ -C models
+models/%.tgz:
+	mkdir -p models
+	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/$@ -w models
 
-models/hieu:
-	$(dir_guard)
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/geovedi.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/geovedi2.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/geovedi3.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/issue50.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/large-beam.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/large-vocab.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/rico.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/small-vocab.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/ensemble.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/en-ro-wmt16-mlstm-amun.tgz -w models
-	./scripts/download_models.py -u http://statmt.org/hieu/amun-regression-tests/models/mlstm-factors.tgz -w models
-	tar xvf models/geovedi.tgz -C models
-	tar xvf models/geovedi2.tgz -C models
-	tar xvf models/geovedi3.tgz -C models
-	tar xvf models/issue50.tgz -C models
-	tar xvf models/large-beam.tgz -C models
-	tar xvf models/large-vocab.tgz -C models
-	tar xvf models/rico.tgz -C models
-	tar xvf models/small-vocab.tgz -C models
-	tar xvf models/ensemble.tgz -C models
-	tar xvf models/en-ro-wmt16-mlstm-amun.tgz -C models
-	tar xvf models/mlstm-factors.tgz -C models
-	rm models/*.tgz
-
+model-ende: models/model_en-de
 models/model_en-de:
-	$(dir_guard)
+	mkdir -p models
 	./scripts/download_models.py -m en-de -w models/model_en-de
-
+model-enfr: models/model_en-fr
 models/model_en-fr:
-	$(dir_guard)
-	./scripts/download_models.py -u http://data.statmt.org/summa/mt/models/test/en-fr/en-fr.tgz -w models
-	cd models && tar xvf en-fr.tgz --transform "s|en-fr/|model_en-fr/|"
-	rm models/en-fr.tgz
+	mkdir -p models
+	./scripts/download_models.py -u http://data.statmt.org/summa/mt/models/test/en-fr/en-fr.tgz -w models && cd models && tar xvf en-fr.tgz --transform "s|en-fr/|model_en-fr/|"
 
 clean:
 	rm -rf models
 
-.PHONY: models download_models clean
+.PHONY: clean models zip-models
