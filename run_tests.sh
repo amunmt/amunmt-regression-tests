@@ -7,20 +7,19 @@ else
 fi
 
 if [ ! -s ../amun/build/amun ]; then
-  echo "Could not find amun executable: ../amun/build/amun"
-  exit 1
+    echo "Could not find amun executable: ../amun/build/amun"
+    exit 1
 fi
 
-success=true
+EXITCODE=0
 
 for test in `ls -d $TESTS`; do
-  cd $test
-  time -p make -i 2> err
-  exit_code=$?
-  cd -
-  if [ $exit_code -ne 0 ]; then
-    success=false
-  fi
+    cd $test
+    time -p make -i 2> err
+    if grep -qi "make:.* error" err; then
+        EXITCODE=1
+    fi
+    cd -
 done
 
-$success
+exit $EXITCODE

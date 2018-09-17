@@ -1,7 +1,7 @@
 #/bin/bash -ex
 
 AMUN=../../../amun/build/amun
-DIFF=../../scripts/diff.py -p 0.0001
+DIFF=../../scripts/diff.py -p 0.001
 
 test:
 	cat test.in |  $(AMUN) -c config.yml --n-best yes --mini-batch 8 --maxi-batch 32 > test.out

@@ -12,4 +12,8 @@ To download test models, run:
 ## Running tests
 First, clone and compile [https://github.com/marian-nmt/amun](amun) into `../amun/build/amun`, then run:
 
-    bash ./run_tests.sh
+    make test
+
+To remove test logs and outputs, run:
+
+    make clean
