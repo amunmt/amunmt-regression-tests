@@ -1,7 +1,5 @@
 models/*
 
-*.out
-
 *~
 *.swo
 *.swp
