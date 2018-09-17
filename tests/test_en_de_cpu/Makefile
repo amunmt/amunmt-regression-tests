@@ -1,10 +1,11 @@
 #/bin/bash -ex
 
 AMUN=../../../amun/build/amun
+DIFF=../../scripts/diff.py -p 0.0001
 
 test:
 	$(AMUN) -c config.yml > test.out
-	diff test.out test.correct > test.diff
+	$(DIFF) test.out test.correct > test.diff
 
 clean:
 	rm -f test.out test.diff err
