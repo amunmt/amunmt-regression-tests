@@ -4,24 +4,18 @@
 import sys
 import os
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + '/../../../marian/build')
+AMUN_LIB_DIR = '../../../amun/build' if len(sys.argv) < 2 else sys.argv[1]
+sys.path.append(os.path.realpath(AMUN_LIB_DIR))
+
 import libamunmt as nmt
 
 
-def test_init():
+def main():
     nmt.init('-c config.yml')
-
-
-def test_translate():
     output = nmt.translate(['Alice has a cat .'])
     assert len(output) == 1
     translation = output[0]
     assert translation.strip() == 'Alice hat eine Katze .'
-
-
-def main():
-    test_init()
-    test_translate()
 
 
 if __name__ == "__main__":

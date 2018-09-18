@@ -4,6 +4,7 @@ MODELS_HIEU=geovedi geovedi2 geovedi3 issue50 large-beam large-vocab rico small-
 
 TESTS_CPU=tests/test_en_de_cpu tests/test_en_de_cpu_nbest
 TESTS_GPU=tests/test_en_de_gpu tests/test_en_de_gpu.nbest tests/test_en_de_gpu.return-alignment
+TESTS_PYTHON=tests/test_python_bindings
 
 AMUN=../amun/build/amun
 
@@ -15,6 +16,8 @@ test-cpu:
 	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_CPU)
 test-gpu:
 	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_GPU)
+test-python:
+	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_PYTHON)
 
 test:
 	AMUN=$(AMUN) bash -v ./run_tests.sh

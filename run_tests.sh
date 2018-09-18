@@ -21,7 +21,7 @@ EXITCODE=0
 for test in `ls -d $TESTS`; do
     cd $test
     time -p make -i AMUN=$AMUN_REALPATH 2> err
-    if grep -qi "make:.* error" err; then
+    if grep -qi "make.* error" err; then
         EXITCODE=1
     fi
     cd -
