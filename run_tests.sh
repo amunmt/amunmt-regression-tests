@@ -6,16 +6,21 @@ else
     TESTS=$@
 fi
 
-if [ ! -s ../amun/build/amun ]; then
-    echo "Could not find amun executable: ../amun/build/amun"
+AMUN_DEFAULT=../amun/build/amun
+AMUN_PATH=${AMUN:-$AMUN_DEFAULT}
+
+if [ ! -s $AMUN_PATH ]; then
+    echo "Could not find amun executable: $AMUN_PATH"
     exit 1
 fi
+
+AMUN_REALPATH=`realpath -q $AMUN_PATH`
 
 EXITCODE=0
 
 for test in `ls -d $TESTS`; do
     cd $test
-    time -p make -i 2> err
+    time -p make -i AMUN=$AMUN_REALPATH 2> err
     if grep -qi "make:.* error" err; then
         EXITCODE=1
     fi

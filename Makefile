@@ -5,17 +5,19 @@ MODELS_HIEU=geovedi geovedi2 geovedi3 issue50 large-beam large-vocab rico small-
 TESTS_CPU=tests/test_en_de_cpu tests/test_en_de_cpu_nbest
 TESTS_GPU=tests/test_en_de_gpu tests/test_en_de_gpu.nbest tests/test_en_de_gpu.return-alignment
 
+AMUN=../amun/build/amun
+
 
 #####################################################################
 all: models
 
 test-cpu:
-	bash -v ./run_tests.sh $(TESTS_CPU)
+	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_CPU)
 test-gpu:
-	bash -v ./run_tests.sh $(TESTS_GPU)
+	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_GPU)
 
 test:
-	bash -v ./run_tests.sh
+	AMUN=$(AMUN) bash -v ./run_tests.sh
 
 
 #####################################################################
