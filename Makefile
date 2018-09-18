@@ -13,14 +13,14 @@ AMUN=../amun/build/amun
 all: models
 
 test-cpu:
-	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_CPU)
+	AMUN=$(AMUN) bash -xe ./run_tests.sh $(TESTS_CPU)
 test-gpu:
-	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_GPU)
+	AMUN=$(AMUN) bash -xe ./run_tests.sh $(TESTS_GPU)
 test-python:
-	AMUN=$(AMUN) bash -v ./run_tests.sh $(TESTS_PYTHON)
+	AMUN=$(AMUN) bash -xe ./run_tests.sh $(TESTS_PYTHON)
 
 test:
-	AMUN=$(AMUN) bash -v ./run_tests.sh
+	AMUN=$(AMUN) bash -xe ./run_tests.sh
 
 
 #####################################################################
