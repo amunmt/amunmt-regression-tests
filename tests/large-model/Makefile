@@ -4,7 +4,7 @@ AMUN=../../../amun/build/amun
 DIFF=../../scripts/diff.py -p 0.0001
 
 test:
-	$(AMUN) -c amun.yml --gpu-threads 1 --cpu-threads 0 -i in.10k > test.out
+	$(AMUN) -c amun.yml --gpu-threads 1 --cpu-threads 0 -i in.10k --max-length-multiple 3 > test.out
 	$(DIFF) test.out test.correct > test.diff
 
 clean:
